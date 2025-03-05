@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchStories } from "@/redux/actions/storyActions";
+import { addContribution, fetchStories } from "@/redux/actions/storyActions";
 import { useNavigate } from "react-router-dom";
 import { Button, Box, Heading, Text, VStack } from "@chakra-ui/react";
 
 const Home= () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [contribution, setContribution] = useState("");
+
   const stories = useSelector((state) => state.stories.stories);
   const user=useSelector((state)=>state.auth.user);
   console.log(user,"user ")
@@ -15,13 +17,24 @@ const Home= () => {
   useEffect(() => {
     dispatch(fetchStories());
   }, [dispatch]);
-  const handleContribution=()=>{
-if(!user.uid){
-    alert("Please login to contribute to stories");
-    navigate("/login")
-}
-//alert("Please login to contribute to stories");
-  }
+  
+
+
+  
+ 
+    const handleAddContribution = () => {
+        if(!user.uid){
+            alert("Please login to contribute to stories");
+            navigate("/login")
+        }
+
+      else  if (contribution.trim()) {
+          dispatch(addContribution(storyId, contribution, userId, userName));
+          setContribution("");
+        }
+      };
+  
+
 
   const ongoingStories = stories.filter((story) => !story.completed);
 
@@ -34,7 +47,7 @@ if(!user.uid){
             <Box key={story.id} p={4} borderWidth={1} borderRadius="md">
               <Text fontSize="xl" fontWeight="bold">{story.title}</Text>
               <Text>{story.contributions.length} contributions</Text>
-              <Button mt={2} onClick={ handleContribution}>Contribute</Button>
+              <Button mt={2} onClick={handleAddContribution}>Contribute</Button>
             </Box>
           ))}
         </VStack>
