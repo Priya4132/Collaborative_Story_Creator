@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import '../App.css'
 
+
 const Navbar = () => {
   const MotionText = motion(Text);
     const user=useSelector((state)=>state.auth.user);

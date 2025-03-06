@@ -6,6 +6,7 @@ import { createStory, fetchStories } from "@/redux/actions/storyActions";
 import { useNavigate } from "react-router-dom";
 import { Box, Button, Input, Text, VStack, HStack } from "@chakra-ui/react";
 import { logout } from "@/redux/actions/authActions";
+import background_image from '../assets/background_image.png'
 
 
 const Story = () => {
@@ -54,6 +55,12 @@ return (
     <Button ml={"90%"} colorScheme="blue" onClick={handleLogout} >
        Logout 
       </Button>
+      <Box    minHeight="100vh" 
+    width="100%" 
+      backgroundImage={`url(${background_image})`}
+        backgroundSize="cover"
+        backgroundPosition="center"
+        backgroundRepeat="no-repeat">
     <VStack spacing={4} align="stretch" maxW="500px" mx="auto" mt={10} p={5} borderWidth="1px" borderRadius="md">
       <Text fontSize="2xl" fontWeight="bold">Create a New Story</Text>
       <Input placeholder="Story Title" value={title} onChange={(e) => setTitle(e.target.value)} />
@@ -62,6 +69,7 @@ return (
       <Button colorScheme="blue" onClick={handleSubmit} isDisabled={!title.trim() || !initialSentence.trim()}>
         Start Story
       </Button>
+      
 
       {/* Toggle Button for Completed and Ongoing Stories */}
       <HStack justifyContent="center" mt={6}>
@@ -98,6 +106,7 @@ return (
           </Box>
         ))}
     </VStack>
+    </Box>
     </>
   );
 };

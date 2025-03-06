@@ -2,8 +2,9 @@ import React, { useEffect,useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addContribution, fetchStories } from "@/redux/actions/storyActions";
 import { useNavigate } from "react-router-dom";
-import { Button, Box, Heading, Text, VStack } from "@chakra-ui/react";
+import { Button, Box, Heading, Text, VStack,Flex } from "@chakra-ui/react";
 import BannerPage from "./BannerPage";
+import background_image from "../assets/background_image.png"
 
 const Home= () => {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ const Home= () => {
         }
 
       else  if (contribution.trim()) {
-          dispatch(addContribution(storyId, contribution, userId, userName));
+          dispatch(addContribution(storyId, contribution, user.Id, user.email));
           setContribution("");
         }
       };
@@ -42,7 +43,14 @@ const Home= () => {
   return (
     <>
     <BannerPage/>
-    <Box p={5}>
+    {/* <Box
+  p={5}
+  backgroundImage={`url(${background_image})`}
+  backgroundSize="cover"
+  backgroundPosition="center"
+  backgroundRepeat="no-repeat"
+> */}
+
       <Heading size="lg" mb={4}>Ongoing Stories</Heading>
       {ongoingStories.length > 0 ? (
         <VStack spacing={4} align="stretch">
@@ -57,7 +65,10 @@ const Home= () => {
       ) : (
         <Text>No ongoing stories available.</Text>
       )}
-    </Box>
+    {/* </Box> */}
+    <Flex justify={"center"} p={2} mt={2}>
+      <Text fontWeight={"bold"}>&copy; Priya Tripathi @2025. All Rights Reserved.</Text>
+    </Flex>
     </>
   );
 };
