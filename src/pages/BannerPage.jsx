@@ -16,7 +16,10 @@ const BannerPage = () => {
         navigate("/login");
 
     }
-    navigate("/stories")
+    else{
+        navigate("/stories")
+    }
+   
   }
   return (
     <Box
