@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchStories } from "@/redux/actions/storyActions";
-import { Box, Text, VStack } from "@chakra-ui/react";
+import { Box, Text, VStack ,Button} from "@chakra-ui/react";
 
 const StoryDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const navigate=useNavigate();
   const stories = useSelector((state) => state.stories.stories);
   
   useEffect(() => {
@@ -27,6 +28,8 @@ const StoryDetails = () => {
       {story.contributions.map((entry, index) => (
         <Box key={index} p={4} borderWidth="1px" borderRadius="md">
           <Text>{entry.text} - <i>{entry.authorName || "Unknown"}</i></Text>
+                    <Button mt={2}  m={2}  onClick={() => navigate(`/stories`)}>Go Back</Button>
+          
         </Box>
       ))}
     </VStack>

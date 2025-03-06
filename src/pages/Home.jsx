@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addContribution, fetchStories } from "@/redux/actions/storyActions";
 import { useNavigate } from "react-router-dom";
 import { Button, Box, Heading, Text, VStack } from "@chakra-ui/react";
+import BannerPage from "./BannerPage";
 
 const Home= () => {
   const dispatch = useDispatch();
@@ -11,7 +12,7 @@ const Home= () => {
 
   const stories = useSelector((state) => state.stories.stories);
   const user=useSelector((state)=>state.auth.user);
-  console.log(user,"user ")
+  //console.log(user,"user ")
      const userDetails=JSON.parse(localStorage.getItem("user"))||[];
     // console.log(userDetails,"user details")
   useEffect(() => {
@@ -39,6 +40,8 @@ const Home= () => {
   const ongoingStories = stories.filter((story) => !story.completed);
 
   return (
+    <>
+    <BannerPage/>
     <Box p={5}>
       <Heading size="lg" mb={4}>Ongoing Stories</Heading>
       {ongoingStories.length > 0 ? (
@@ -55,6 +58,7 @@ const Home= () => {
         <Text>No ongoing stories available.</Text>
       )}
     </Box>
+    </>
   );
 };
 
