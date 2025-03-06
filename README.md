@@ -1,12 +1,77 @@
-# React + Vite
+StoryCraft
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ Collaborative_Story_Creator  is a collaborative storytelling web application where users can create and contribute to shared stories. Each story evolves through multiple user contributions, making it an engaging and interactive experience.
 
-Currently, two official plugins are available:
+Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+📝 Create Stories: Users can start a new story with an initial sentence.
 
-## Expanding the ESLint configuration
+✍ Contribute: Add to existing stories with a limit of 20 words per contribution.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+📜 Ongoing & Completed Stories: View and participate in active stories or read completed ones.
+
+🔐 User Authentication: Sign up and log in to create and contribute to stories.
+
+📱 Responsive Design: Works seamlessly across devices.
+
+Screenshots
+
+Home Page
+
+![alt text](homepage.PNG)
+
+Login Page
+
+![alt text](Loginpage.PNG)
+
+
+
+Create Story Page
+
+![alt text](createStoryPage.PNG)
+
+
+
+
+
+
+Technologies Used
+
+React.js: Frontend framework
+
+Redux & Thunk: State management
+
+Firebase: Authentication & database
+
+Chakra UI: Styling
+
+Installation & Setup
+
+Clone the repository:
+
+git clone https://github.com/Priya4132/Collaborative_Story_Creator.git
+cd storycraft
+
+Install dependencies:
+
+npm install
+
+Start the development server:
+
+npm start
+
+Open http://localhost:3000 in your browser.
+
+Deployment
+
+The application is deployed at:
+👉 collaborative-story-crea-56728.web.app
+
+Contributing
+
+Contributions are welcome! Feel free to submit a pull request.
+
+License
+
+This project is licensed under the MIT License.
+
