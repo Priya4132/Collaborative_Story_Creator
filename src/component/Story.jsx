@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createStory, fetchStories } from "@/redux/actions/storyActions";
 import { useNavigate } from "react-router-dom";
 import { Box, Button, Input, Text, VStack, HStack } from "@chakra-ui/react";
+import { logout } from "@/redux/actions/authActions";
 
 
 const Story = () => {
@@ -20,6 +21,10 @@ const Story = () => {
     dispatch(fetchStories());
   }, [dispatch]);
 
+  const handleLogout=()=>{
+    dispatch(logout());
+    navigate("/")
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!user || !user.uid) {
@@ -45,6 +50,10 @@ const Story = () => {
 
 
 return (
+    <>
+    <Button ml={"90%"} colorScheme="blue" onClick={handleLogout} >
+       Logout 
+      </Button>
     <VStack spacing={4} align="stretch" maxW="500px" mx="auto" mt={10} p={5} borderWidth="1px" borderRadius="md">
       <Text fontSize="2xl" fontWeight="bold">Create a New Story</Text>
       <Input placeholder="Story Title" value={title} onChange={(e) => setTitle(e.target.value)} />
@@ -89,6 +98,7 @@ return (
           </Box>
         ))}
     </VStack>
+    </>
   );
 };
 

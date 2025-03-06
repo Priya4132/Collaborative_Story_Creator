@@ -28,7 +28,8 @@ const Navbar = () => {
         <Flex justifyContent={"space-evenly"} gap={4} p={2}> 
         <Link className='links' to="/">Home</Link> <Link  className='links'to="/login">Login</Link> 
     {/* <Link to="/register">Register</Link>  */}
-    <Link className='links' to="/stories">Story</Link> 
+    {user && <Link className='links' to="/stories">Story</Link>  }
+    
     </Flex>
     </Flex>
      

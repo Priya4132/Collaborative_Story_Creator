@@ -50,7 +50,7 @@ Installation & Setup
 Clone the repository:
 
 git clone https://github.com/Priya4132/Collaborative_Story_Creator.git
-cd storycraft
+
 
 Install dependencies:
 
