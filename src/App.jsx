@@ -8,10 +8,12 @@ import Register from './pages/Register'
 import Story from './component/Story'
 import StoryDetails from './component/StoryDetails'
 import Home from './pages/Home'
+import { PaymentComponent } from './component/PaymentComponent'
 const App = () => {
   return (
    <>
-   <Navbar />
+   <PaymentComponent/>
+   {/* <Navbar />
    <Routes>
    <Route path='/' element={<Home />}/>
       <Route path='/login' element={<Login />}/>
@@ -20,7 +22,7 @@ const App = () => {
       <Route path="/story/:id" element={<StoryDetails />} />
 
      
-    </Routes>
+    </Routes> */}
    </>
   )
 }
