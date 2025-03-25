@@ -12,8 +12,8 @@ import { PaymentComponent } from './component/PaymentComponent'
 const App = () => {
   return (
    <>
-   <PaymentComponent/>
-   {/* <Navbar />
+   {/* <PaymentComponent/> */}
+   <Navbar />
    <Routes>
    <Route path='/' element={<Home />}/>
       <Route path='/login' element={<Login />}/>
@@ -22,7 +22,7 @@ const App = () => {
       <Route path="/story/:id" element={<StoryDetails />} />
 
      
-    </Routes> */}
+    </Routes>
    </>
   )
 }
