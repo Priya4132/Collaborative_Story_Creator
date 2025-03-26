@@ -37,7 +37,8 @@ export const login=(email,password)=>async(dispatch)=>{
 export const logout=()=>async(dispatch)=>{
     try{
 await signOut(auth);
-dispatch({type:LOGOUT_USER})
+dispatch({type:LOGOUT_USER});
+
     }catch(error){
         console.log(error);
     }
